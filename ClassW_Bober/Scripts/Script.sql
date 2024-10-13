@@ -1,0 +1,4 @@
+CREATE TABLE TestBober(
+    id NUMBER PRIMARY KEY,
+    age NUMBER
+);

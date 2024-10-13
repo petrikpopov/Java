@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Table Generator</h1>
+    <form action="/servlet/generateTable" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br><br>
+
+        <label for="rows">Number of Rows:</label>
+        <input type="number" id="rows" name="rows"><br><br>
+
+        <label for="columns">Number of Columns:</label>
+        <input type="number" id="columns" name="columns"><br><br>
+
+        <label for="bgColor">Background Color:</label>
+        <input type="text" id="bgColor" name="bgColor" placeholder="#FFFFFF"><br><br>
+
+        <button type="submit">Generate Table</button>
+    </form>
+</body>
+</html>
