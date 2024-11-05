@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Контакты</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script>
+        function confirmDelete(event, id) {
+            event.preventDefault();
+            if (confirm("Вы уверены, что хотите удалить этот контакт?")) {
+                window.location.href = '/contacts/delete/' + id;
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Список контактов</h1>
+        <a href="/contacts/add" class="btn btn-primary">Добавить новый контакт</a>
+    </header>
+    <table class="contact-table">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Почта</th>
+                <th>Телефон</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="contact : ${contacts}">
+                <td th:text="${contact.name}"></td>
+                <td th:text="${contact.email}"></td>
+                <td th:text="${contact.phone}"></td>
+                <td>
+                    <a th:href="@{/contacts/edit/{id}(id=${contact.id})}" class="btn btn-edit">Редактировать</a>
+                    <a href="#" th:onclick="'confirmDelete(event,' + ${contact.id} + ')'" class="btn btn-delete">Удалить</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
